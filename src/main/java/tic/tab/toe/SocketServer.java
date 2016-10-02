@@ -7,13 +7,16 @@
  */
 package tic.tab.toe;
 
+import tic.tab.toe.message.MessageDecoder;
+import tic.tab.toe.message.MessageEncoder;
+
 import javax.websocket.OnClose;
 import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.server.ServerEndpoint;
 
-@ServerEndpoint(value = "/", decoders = {}, encoders = {})
+@ServerEndpoint(value = "/", decoders = {MessageDecoder.class}, encoders = {MessageEncoder.class})
 public class SocketServer {
 
     @OnOpen
